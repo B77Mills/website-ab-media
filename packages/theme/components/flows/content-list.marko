@@ -1,0 +1,33 @@
+import { getAsArray, getAsObject } from "@base-cms/object-path";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+
+$ const { nativeX: nxConfig } = out.global;
+$ const nodes = getAsArray(input, "nodes");
+$ const nativeX = getAsObject(input, "nativeX");
+
+<marko-web-node-list
+  inner-justified=defaultValue(input.innerJustified, true)
+  class=input.class
+  flush-x=defaultValue(input.flushX, true)
+  flush-y=defaultValue(input.flushY, true)
+  modifiers=input.modifiers
+  header=input.header
+>
+  <@nodes nodes=nodes>
+    <@slot|{ node, index }|>
+      <marko-web-native-x-render|{ node: nxNode, linkAttrs, containerAttrs }|
+        ...nativeX
+        when=(index === nativeX.index)
+        node=node
+        config=nxConfig
+      >
+        <theme-content-list-node
+          ...input.node
+          node=nxNode
+          attrs=containerAttrs
+          link-attrs=linkAttrs
+        />
+      </marko-web-native-x-render>
+    </@slot>
+  </@nodes>
+</marko-web-node-list>

@@ -1,0 +1,70 @@
+{
+  "<theme-latest-content-load-more-block>": {
+    "template": "./latest-content-load-more.marko",
+    "<query>": {},
+    "<page>": {},
+    "<adunit>": {},
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@max-pages": "number"
+  },
+  "<theme-follow-us-block>": {
+    "template": "./follow-us.marko"
+  },
+  "<theme-most-read-block>": {
+    "template": "./most-read.marko"
+  },
+  "<theme-featured-videos-block>": {
+    "template": "./featured-videos.marko",
+    "@section-id": "number"
+  },
+  "<theme-recommended-block>": {
+    "template": "./recommended.marko",
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@skip": "number"
+  },
+  "<theme-related-content-block>": {
+    "template": "./related-content.marko",
+    "@content-id": "number"
+  },
+  "<theme-magazine-publications-block>": {
+    "template": "./magazine-publications.marko"
+  },
+  "<theme-latest-in-section-block>": {
+    "template": "./latest-in-section.marko",
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@content-id": "number",
+    "@section-id": "number",
+    "@section-name": "string"
+  },
+  "<theme-content-infinite-scroll-block>": {
+    "template":  "./content-infinite-scroll.marko",
+    "@id": "number",
+    "@type": "string",
+    "@name": "string",
+    "@section-id": "number",
+    "@aliases": "array",
+    "@limit": "number",
+    "@skip": "number"
+  },
+  "<theme-media-center-section-block>": {
+    "template":  "./media-center-section.marko",
+    "<link>": {},
+    "<query>": {
+      "@name": "string",
+      "@params": "object"
+    },
+    "@title": "string"
+  }
+}

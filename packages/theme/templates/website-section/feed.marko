@@ -1,0 +1,25 @@
+import { getAsObject } from "@base-cms/object-path";
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode,
+  context,
+} = data;
+
+$ const query = getAsObject(context, "query");
+$ const queryName = query.name || "website-scheduled-content";
+$ const queryParams = query.params || { sectionId: id, limit: 12 };
+
+<theme-website-section-published-content-layout
+  id=id
+  alias=alias
+  name=name
+  page-node=pageNode
+>
+  <@query
+    name=queryName
+    params=queryParams
+  />
+</theme-website-section-published-content-layout>
