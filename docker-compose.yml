@@ -56,3 +56,51 @@ services:
     entrypoint: ["yarn"]
     environment:
       <<: *env
+
+  athleticbusiness.com:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/athleticbusiness.com
+    environment:
+      <<: *env
+      <<: *env-caprica
+      PORT: 80
+      EXPOSED_PORT: 9710
+      LIVERELOAD_PORT: 19710
+      TENANT_KEY: abm_athleticbusiness
+      SITE_ID: 5e6a882568bf3bbe5f661e46
+    ports:
+      - "9710:80"
+      - "19710:19710"
+
+  # aquamagazine.com:
+  #   <<: *node
+  #   <<: *site-cmd
+  #   working_dir: /root/sites/aquamagazine.com
+  #   environment:
+  #     <<: *env
+  #     <<: *env-caprica
+  #     PORT: 80
+  #     EXPOSED_PORT: 9711
+  #     LIVERELOAD_PORT: 19711
+  #     TENANT_KEY: abm_aquamagazine
+  #     SITE_ID: 53c95fdd1784f8066eb2c891
+  #   ports:
+  #     - "9711:80"
+  #     - "19711:19711"
+
+  # woodfloorbusiness.com:
+  #   <<: *node
+  #   <<: *site-cmd
+  #   working_dir: /root/sites/woodfloorbusiness.com
+  #   environment:
+  #     <<: *env
+  #     <<: *env-caprica
+  #     PORT: 80
+  #     EXPOSED_PORT: 9712
+  #     LIVERELOAD_PORT: 19712
+  #     TENANT_KEY: abm_woodfloorbusiness
+  #     SITE_ID: 53c95fdd1784f8066eb2c891
+  #   ports:
+  #     - "9712:80"
+  #     - "19712:19712"

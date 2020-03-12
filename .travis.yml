@@ -40,6 +40,42 @@ jobs:
     ### vvv ADD SITES HERE vvv ##
     #############################
 
+    - stage: production
+      name: athleticbusiness.com
+      script: npx @base-cms/website-deployment-tool deploy athleticbusiness.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+
+    - stage: staging
+      name: athleticbusiness.com
+      script: npx @base-cms/website-deployment-tool deploy athleticbusiness.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
+    # - stage: production
+    #   name: aquamagazine.com
+    #   script: npx @base-cms/website-deployment-tool deploy aquamagazine.com caprica
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+
+    # - stage: staging
+    #   name: aquamagazine.com
+    #   script: npx @base-cms/website-deployment-tool deploy aquamagazine.com caprica
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
+    # - stage: production
+    #   name: woodfloorbusiness.com
+    #   script: npx @base-cms/website-deployment-tool deploy woodfloorbusiness.com caprica
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+
+    # - stage: staging
+    #   name: woodfloorbusiness.com
+    #   script: npx @base-cms/website-deployment-tool deploy woodfloorbusiness.com caprica
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
