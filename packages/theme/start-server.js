@@ -2,6 +2,8 @@ const newrelic = require('newrelic');
 const { startServer } = require('@base-cms/marko-web');
 const { set, get, getAsObject } = require('@base-cms/object-path');
 const cleanResponse = require('@base-cms/marko-core/middleware/clean-marko-response');
+const loadInquiry = require('@ab-media/package-inquiry/load-from-config');
+const sharedRedirectHandler = require('./redirect-handler');
 
 const buildGAMConfig = require('./gam/build-config');
 const buildNativeXConfig = require('./native-x/build-config');
@@ -11,6 +13,9 @@ const components = require('./components');
 const fragments = require('./fragments');
 
 const routes = siteRoutes => (app) => {
+  // Handle submissions on /__inquiry
+  loadInquiry(app);
+  // Load site routes.
   siteRoutes(app);
 };
 
@@ -46,7 +51,7 @@ module.exports = (options = {}) => {
         const result = await redirectHandler(redirectOps);
         if (result) return result;
       }
-      return null;
+      return sharedRedirectHandler(redirectOps);
     },
     onAsyncBlockError: e => newrelic.noticeError(e),
   });

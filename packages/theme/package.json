@@ -12,6 +12,7 @@
   "dependencies": {
     "@base-cms/marko-core": "^1.22.0",
     "@base-cms/marko-web": "^1.23.2",
+    "@ab-media/package-inquiry": "^0.0.0",
     "@base-cms/marko-web-gam": "^1.9.0",
     "@base-cms/marko-web-gcse": "^1.9.0",
     "@base-cms/marko-web-gtm": "^1.21.2",
