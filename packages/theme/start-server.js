@@ -2,6 +2,7 @@ const newrelic = require('newrelic');
 const { startServer } = require('@base-cms/marko-web');
 const { set, get, getAsObject } = require('@base-cms/object-path');
 const cleanResponse = require('@base-cms/marko-core/middleware/clean-marko-response');
+const contactUsHandler = require('@ab-media/package-contact-us/routers/submit');
 const loadInquiry = require('@ab-media/package-inquiry/load-from-config');
 const sharedRedirectHandler = require('./redirect-handler');
 
@@ -15,6 +16,8 @@ const fragments = require('./fragments');
 const routes = siteRoutes => (app) => {
   // Handle submissions on /__inquiry
   loadInquiry(app);
+  // Handle contact submissions on /__contact-us
+  contactUsHandler(app);
   // Load site routes.
   siteRoutes(app);
 };
