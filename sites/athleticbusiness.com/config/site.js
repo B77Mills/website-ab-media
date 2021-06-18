@@ -7,17 +7,18 @@ module.exports = {
   nativeX,
   navigation,
   company: 'Athletic Business Publications, Inc.',
+  copyrightNotice: 'Athletic Business is the Resource for Athletic, Fitness and Recreation Professionals',
   logos: {
     navbar: {
-      src: 'https://base.imgix.net/files/base/abm/ab/ab-navbar-logo.png?h=60',
+      src: 'https://p1-cms-assets.imgix.net/files/base/abmedia/all/image/static/ab-site-logo.png?h=60',
       srcset: [
-        'https://base.imgix.net/files/base/abm/ab/ab-navbar-logo.png?h=120 2x',
+        'https://p1-cms-assets.imgix.net/files/base/abmedia/all/image/static/ab-site-logo.png?h=120 2x',
       ],
     },
     footer: {
-      src: 'https://base.imgix.net/files/base/abm/ab/ab-navbar-logo.png?h=60',
+      src: 'https://p1-cms-assets.imgix.net/files/base/abmedia/all/image/static/ab-site-logo.png?h=60',
       srcset: [
-        'https://base.imgix.net/files/base/abm/ab/ab-navbar-logo.png?h=120 2x',
+        'https://p1-cms-assets.imgix.net/files/base/abmedia/all/image/static/ab-site-logo.png?h=120 2x',
       ],
     },
   },
