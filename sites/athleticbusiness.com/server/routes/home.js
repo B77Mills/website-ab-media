@@ -1,6 +1,7 @@
-const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
-const home = require('@ab-media/theme/templates/index');
-const queryFragment = require('@ab-media/theme/graphql/fragments/website-section-page');
+const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middleware');
+const queryFragment = require('@ab-media/package-global/graphql/fragments/website-section-page');
+// const postIdHandler = require('@ab-media/package-shared/middleware/post-id-handler');
+const home = require('../templates/index');
 
 module.exports = (app) => {
   app.get('/', withWebsiteSection({
