@@ -1,1 +1,1 @@
-module.exports = require('@ab-media/theme/newrelic');
+module.exports = require('@ab-media/package-global/newrelic');

@@ -1,4 +1,4 @@
-const startServer = require('@ab-media/theme/start-server');
+const startServer = require('@ab-media/package-global/start-server');
 
 const routes = require('./server/routes');
 const siteConfig = require('./config/site');

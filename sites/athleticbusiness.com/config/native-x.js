@@ -1,5 +1,12 @@
-module.exports = {
-  placements: {
-    // default: '5b5f21fe82a75700011d299d',
-  },
-};
+const configureNativeX = require('@ab-media/package-global/config/native-x');
+
+const config = configureNativeX();
+
+config.enabled = false;
+
+// config
+//   .setAliasPlacements('default', [
+//     { name: 'default', id: '6000b672140b3d0001040608' },
+//   ]);
+
+module.exports = config;
