@@ -3,7 +3,7 @@ version: '3.7'
 x-node-defaults: &node
   tty: true
   init: true
-  image: node:10.15
+  image: node:10.24
   entrypoint: ["node"]
   working_dir: /root
   restart: always
@@ -16,18 +16,31 @@ x-env-defaults: &env
   NEW_RELIC_ENABLED: ${NEW_RELIC_ENABLED-0}
   NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY-(unset)}
   NODE_ENV: development
+  OMEDA_APP_ID: ${OMEDA_APP_ID-(unset)}
   # @todo the recaptcha values should be removed (?) once contact-us is moved to core.
   RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY-(unset)}
   # @todo the sendgrid values should be removed once the @base-cms/mailer service is created.
   SENDGRID_API_KEY: ${SENDGRID_API_KEY-(unset)}
   SENDGRID_DEV_TO: developer@endeavorb2b.com
   YARN_CACHE_FOLDER: /.yarn-cache
+  IDENTITYX_API_TOKEN: ${IDENTITYX_API_TOKEN-(unset)}
+  IDENTITYX_GRAPHQL_URI: ${IDENTITYX_GRAPHQL_URI-https://identity-x.parameter1.com/graphql}
+  BASE_BROWSE_GRAPHQL_URI: ${BASE_BROWSE_GRAPHQL_URI-https://base-browse.leonis.base.parameter1.com/graphql}
+  ALGOLIA_APP_ID: ${ALGOLIA_APP_ID-05JLREVGZ4}
+  ALGOLIA_API_KEY: ${ALGOLIA_API_KEY}
+  ALGOLIA_DEFAULT_INDEX: ${ALGOLIA_DEFAULT_INDEX-randallreilly_all_platform_content}
 
 x-env-caprica: &env-caprica
-  GRAPHQL_URI: ${GRAPHQL_URI-https://caprica.graphql.base-cms.io}
-  OEMBED_URI: ${OEMBED_URI-https://caprica.oembed.base-cms.io}
-  RSS_URI: ${RSS_URI-https://caprica.rss.base-cms.io}
-  SITEMAPS_URI: ${SITEMAPS_URI-https://caprica.sitemaps.base-cms.io}
+  GRAPHQL_URI: ${GRAPHQL_URI-https://graphql.caprica.base.parameter1.com}
+  OEMBED_URI: ${OEMBED_URI-https://oembed.caprica.base.parameter1.com}
+  RSS_URI: ${RSS_URI-https://rss.caprica.base.parameter1.com}
+  SITEMAPS_URI: ${SITEMAPS_URI-https://sitemaps.caprica.base.parameter1.com}
+
+x-env-leonis: &env-leonis
+  GRAPHQL_URI: ${GRAPHQL_URI-https://graphql.leonis.base.parameter1.com}
+  OEMBED_URI: ${OEMBED_URI-https://oembed.leonis.base.parameter1.com}
+  RSS_URI: ${RSS_URI-https://rss.leonis.base.parameter1.com}
+  SITEMAPS_URI: ${SITEMAPS_URI-https://sitemaps.leonis.base.parameter1.com}
 
 x-env-development: &env-development
   GRAPHQL_URI: ${GRAPHQL_URI-http://host.docker.internal:10002}
@@ -57,18 +70,18 @@ services:
     environment:
       <<: *env
 
-  athleticbusiness.com:
+  ab:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/athleticbusiness.com
     environment:
       <<: *env
-      <<: *env-caprica
+      <<: *env-leonis
       PORT: 80
       EXPOSED_PORT: 9710
       LIVERELOAD_PORT: 19710
-      TENANT_KEY: abm_athleticbusiness
-      SITE_ID: 5e6a882568bf3bbe5f661e46
+      TENANT_KEY: abmedia_all
+      SITE_ID: 60cca5748f0b6f7b018b4567
     ports:
       - "9710:80"
       - "19710:19710"
